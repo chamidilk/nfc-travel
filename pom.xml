@@ -1,0 +1,503 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.ev.ux</groupId>
+  <artifactId>fc</artifactId>
+  <packaging>war</packaging>
+  <version>1.0-SNAPSHOT</version>
+  <name>evux Maven Webapp</name>
+  <url>http://maven.apache.org</url>
+
+
+
+
+  <dependencies>
+
+      <dependency>
+          <groupId>joda-time</groupId>
+          <artifactId>joda-time</artifactId>
+          <version>2.9.1</version>
+      </dependency>
+
+
+      <dependency>
+          <groupId>org.springframework.boot</groupId>
+          <artifactId>spring-boot-starter-web</artifactId>
+          <version>1.2.6.RELEASE</version>
+
+          <exclusions>
+              <exclusion>
+                  <groupId>org.springframework.boot</groupId>
+                  <artifactId>spring-boot-starter-tomcat</artifactId>
+              </exclusion>
+              <exclusion>
+                  <groupId>com.fasterxml.jackson.core</groupId>
+                  <artifactId>jackson-databind</artifactId>
+              </exclusion>
+          </exclusions>
+      </dependency>
+
+
+      <dependency>
+          <groupId>net.sf.jasperreports</groupId>
+          <artifactId>jasperreports</artifactId>
+          <version>6.2.2</version>
+          <exclusions>
+              <exclusion>
+                  <groupId>com.fasterxml.jackson.core</groupId>
+                  <artifactId>jackson-core</artifactId>
+              </exclusion>
+              <exclusion>
+                  <groupId>com.fasterxml.jackson.core</groupId>
+                  <artifactId>jackson-annotations</artifactId>
+              </exclusion>
+              <exclusion>
+                  <groupId>com.fasterxml.jackson.core</groupId>
+                  <artifactId>jackson-databind</artifactId>
+              </exclusion>
+          </exclusions>
+      </dependency>
+
+      <dependency>
+          <groupId>com.fasterxml.jackson.core</groupId>
+          <artifactId>jackson-databind</artifactId>
+          <version>${jackson.databind-version}</version>
+      </dependency>
+
+
+
+      <dependency>
+          <groupId>javax.el</groupId>
+          <artifactId>el-api</artifactId>
+          <version>2.2</version>
+          <scope>provided</scope>
+      </dependency>
+
+
+
+      <dependency>
+          <groupId>javax.servlet</groupId>
+          <artifactId>jstl</artifactId>
+          <version>1.2</version>
+          <!--<scope>provided</scope>-->
+      </dependency>
+
+
+
+      <dependency>
+          <groupId>javax.servlet</groupId>
+          <artifactId>servlet-api</artifactId>
+          <version>2.5</version>
+          <scope>provided</scope>
+
+
+      </dependency>
+
+      <!--<dependency>
+          <groupId>javax</groupId>
+          <artifactId>javaee-api</artifactId>
+          <version>6.0</version>
+          &lt;!&ndash;<scope>provided</scope>&ndash;&gt;
+      </dependency>-->
+    <!--<dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>-->
+
+      <dependency>
+          <groupId>mysql</groupId>
+          <artifactId>mysql-connector-java</artifactId>
+          <version>5.1.36</version>
+      </dependency>
+
+      <!-- Password Validation -->
+      <dependency>
+          <groupId>org.passay</groupId>
+          <artifactId>passay</artifactId>
+          <version>1.0</version>
+      </dependency>
+
+
+      <dependency>
+          <groupId>com.google.guava</groupId>
+          <artifactId>guava</artifactId>
+          <version>${guava.version}</version>
+      </dependency>
+
+      <dependency>
+          <groupId>org.hibernate</groupId>
+          <artifactId>hibernate-entitymanager</artifactId>
+          <version>4.2.0.Final</version>
+      </dependency>
+
+      <!--<dependency>
+          <groupId>org.hibernate</groupId>
+          <artifactId>hibernate-entitymanager</artifactId>
+          <version>4.2.0.Final</version>
+      </dependency>-->
+
+      <!-- <dependency> -->
+      <!-- <groupId>xml-apis</groupId> -->
+      <!-- <artifactId>xml-apis</artifactId> -->
+      <!-- <version>1.4.01</version> -->
+      <!-- </dependency> -->
+
+      <!--<dependency>
+          <groupId>org.hibernate</groupId>
+          <artifactId>hibernate-validator</artifactId>
+          <version>5.1.0.Final</version>
+      </dependency>-->
+
+
+      <!--<dependency>-->
+          <!--<groupId>org.springframework</groupId>-->
+          <!--<artifactId>spring-web</artifactId>-->
+          <!--<version>${org.springframework.version}</version>-->
+      <!--</dependency>-->
+
+      <!--<dependency>
+          <groupId>javax.servlet</groupId>
+          <artifactId>javax.servlet-api</artifactId>
+          <version></version>
+      </dependency>-->
+
+      <dependency>
+          <groupId>junit</groupId>
+          <artifactId>junit</artifactId>
+          <version>3.8.1</version>
+          <scope>test</scope>
+      </dependency>
+
+      <dependency>
+          <groupId>org.springframework</groupId>
+          <artifactId>spring-core</artifactId>
+          <version>${org.springframework.version}</version>
+          <exclusions>
+              <!-- <exclusion> <artifactId>commons-logging</artifactId> <groupId>commons-logging</groupId>                    </exclusion> -->
+          </exclusions>
+      </dependency>
+      <!--<dependency>
+          <groupId>org.springframework</groupId>
+          <artifactId>spring-context</artifactId>
+          <version>${org.springframework.version}</version>
+      </dependency>
+      <dependency>
+          <groupId>org.springframework</groupId>
+          <artifactId>spring-context-support</artifactId>
+          <version>${org.springframework.version}</version>
+      </dependency>-->
+      <dependency>
+          <groupId>org.springframework</groupId>
+          <artifactId>spring-jdbc</artifactId>
+          <version>${org.springframework.version}</version>
+      </dependency>
+      <dependency>
+          <groupId>org.springframework</groupId>
+          <artifactId>spring-beans</artifactId>
+          <version>${org.springframework.version}</version>
+      </dependency>
+      <dependency>
+          <groupId>org.springframework</groupId>
+          <artifactId>spring-aop</artifactId>
+          <version>${org.springframework.version}</version>
+      </dependency>
+      <dependency>
+          <groupId>org.springframework</groupId>
+          <artifactId>spring-tx</artifactId>
+          <version>${org.springframework.version}</version>
+      </dependency>
+      <dependency>
+          <groupId>org.springframework</groupId>
+          <artifactId>spring-aspects</artifactId>
+          <version>${org.springframework.version}</version>
+      </dependency>
+      <dependency>
+          <groupId>org.springframework</groupId>
+          <artifactId>spring-expression</artifactId>
+          <version>${org.springframework.version}</version>
+      </dependency>
+
+      <dependency>
+          <groupId>org.springframework</groupId>
+          <artifactId>spring-webmvc</artifactId>
+          <version>${org.springframework.version}</version>
+      </dependency>
+
+      <dependency>
+          <groupId>org.springframework</groupId>
+          <artifactId>spring-oxm</artifactId>
+          <version>${org.springframework.version}</version>
+      </dependency>
+
+      <!-- Spring Data JPA dependencies -->
+
+      <dependency>
+          <groupId>org.springframework.data</groupId>
+          <artifactId>spring-data-jpa</artifactId>
+          <version>1.7.3.RELEASE</version>
+      </dependency>
+
+
+
+
+
+      <!-- Spring Security -->
+      <dependency>
+          <groupId>org.springframework.security</groupId>
+          <artifactId>spring-security-web</artifactId>
+          <version>${org.springframework.security.version}</version>
+      </dependency>
+      <dependency>
+          <groupId>org.springframework.security</groupId>
+          <artifactId>spring-security-config</artifactId>
+          <version>${org.springframework.security.version}</version>
+      </dependency>
+      <dependency>
+          <groupId>org.springframework.security</groupId>
+          <artifactId>spring-security-acl</artifactId>
+          <version>${org.springframework.security.version}</version>
+      </dependency>
+      <dependency>
+          <groupId>org.springframework.security</groupId>
+          <artifactId>spring-security-taglibs</artifactId>
+          <version>${org.springframework.security.version}</version>
+      </dependency>
+
+      <dependency>
+          <groupId>org.apache.httpcomponents</groupId>
+          <artifactId>httpclient</artifactId>
+          <version>4.5.1</version>
+      </dependency>
+
+      <dependency>
+          <groupId>org.springframework</groupId>
+          <artifactId>spring-context-support</artifactId>
+          <version>${org.springframework.version}</version>
+      </dependency>
+
+
+
+      <dependency>
+          <groupId>javax.mail</groupId>
+          <artifactId>mail</artifactId>
+          <version>${javax.mail.version}</version>
+      </dependency>
+
+      <!-- http://mvnrepository.com/artifact/org.apache.poi/poi -->
+      <dependency>
+          <groupId>org.apache.poi</groupId>
+          <artifactId>poi</artifactId>
+          <version>3.10.1</version>
+      </dependency>
+
+      <dependency>
+          <groupId>org.apache.poi</groupId>
+          <artifactId>poi-ooxml</artifactId>
+          <version>3.10.1</version>
+      </dependency>
+
+
+      <!-- http://mvnrepository.com/artifact/org.springframework.integration/spring-integration-mqtt -->
+      <dependency>
+          <groupId>org.springframework.integration</groupId>
+          <artifactId>spring-integration-mqtt</artifactId>
+          <version>4.1.4.RELEASE</version>
+      </dependency>
+
+
+      <dependency>
+          <groupId>org.springframework.integration</groupId>
+          <artifactId>spring-integration-mqtt</artifactId>
+          <exclusions>
+
+              <exclusion>
+                  <groupId>org.eclipse.paho</groupId>
+                  <artifactId>org.eclipse.paho.client.mqttv3</artifactId>
+              </exclusion>
+          </exclusions>
+          <version>4.1.4.RELEASE</version>
+      </dependency>
+
+      <dependency>
+          <groupId>org.eclipse.paho</groupId>
+          <artifactId>org.eclipse.paho.client.mqttv3</artifactId>
+          <version>1.1.1</version>
+      </dependency>
+
+
+
+
+
+
+
+  </dependencies>
+
+
+    <properties>
+        <!--<spring.version>4.1.7.RELEASE</spring.version>-->
+        <org.springframework.version>4.1.7.RELEASE</org.springframework.version>
+        <jackson.databind-version>2.2.3</jackson.databind-version>
+        <org.springframework.security.version>3.2.8.RELEASE</org.springframework.security.version>
+        <log4j.version>1.2.17</log4j.version>
+
+
+        <java-version>1.7</java-version>
+        <org.springframework-version>4.0.2.RELEASE</org.springframework-version>
+        <!--<org.springframework.security.version>4.0.2.RELEASE</org.springframework.security.version>-->
+
+        <!-- logging -->
+        <org.slf4j.version>1.7.12</org.slf4j.version>
+        <logback.version>1.1.3</logback.version>
+
+        <!-- javax jsp -->
+        <!--<javax.servlet.jsp-api.version>2.3.2-b01</javax.servlet.jsp-api.version>-->
+        <javax.servlet.jsp-api.version>2.3.1</javax.servlet.jsp-api.version>
+
+        <!-- Inject -->
+        <javax.inject.version>1</javax.inject.version>
+
+        <!-- Spring Data Jpa -->
+        <spring-data-jpa.version>1.8.0.RELEASE</spring-data-jpa.version>
+
+        <!-- guava -->
+        <guava.version>18.0</guava.version>
+
+        <!-- Maven plugins -->
+        <cargo-maven2-plugin.version>1.4.16</cargo-maven2-plugin.version>
+        <maven-compiler-plugin.version>3.3</maven-compiler-plugin.version>
+        <maven-war-plugin.version>2.6</maven-war-plugin.version>
+        <maven-surefire-plugin.version>2.18.1</maven-surefire-plugin.version>
+
+
+        <javax.mail.version>1.4.7</javax.mail.version>
+
+    </properties>
+  <build>
+    <finalName>fc</finalName>
+      <pluginManagement>
+          <plugins>
+              <plugin>
+                  <groupId>org.codehaus.mojo</groupId>
+                  <artifactId>build-helper-maven-plugin</artifactId>
+                  <version>1.9.1</version>
+              </plugin>
+              <plugin>
+                  <groupId>org.apache.tomcat.maven</groupId>
+                  <artifactId>tomcat6-maven-plugin</artifactId>
+                  <version>2.2</version>
+              </plugin>
+              <plugin>
+                  <groupId>org.apache.tomcat.maven</groupId>
+                  <artifactId>tomcat7-maven-plugin</artifactId>
+                  <version>2.2</version>
+              </plugin>
+              <plugin>
+                  <groupId>org.codehaus.mojo.jspc</groupId>
+                  <artifactId>jspc-maven-plugin</artifactId>
+                  <version>2.0-alpha-3</version>
+                  <executions>
+                      <execution>
+                          <id>jspc</id>
+                          <goals>
+                              <goal>compile</goal>
+                          </goals>
+                      </execution>
+                  </executions>
+
+
+              </plugin>
+
+              <plugin>
+                  <groupId>org.apache.maven.plugins</groupId>
+                  <artifactId>maven-war-plugin</artifactId>
+                  <version>${maven-war-plugin.version}</version>
+              </plugin>
+          </plugins>
+      </pluginManagement>
+
+      <plugins>
+
+          <plugin>
+              <groupId>org.codehaus.mojo</groupId>
+              <artifactId>build-helper-maven-plugin</artifactId>
+              <executions>
+                  <execution>
+                      <phase>generate-sources</phase>
+                      <goals><goal>add-source</goal></goals>
+                      <configuration>
+                          <sources>
+                              <source>src/main/ev</source>
+                              <source>src/main/platform</source>
+                          </sources>
+                      </configuration>
+                  </execution>
+              </executions>
+          </plugin>
+
+          <!--<plugin>
+              <groupId>org.eclipse.jetty</groupId>
+              <artifactId>jetty-maven-plugin</artifactId>
+              <configuration>
+
+                  <httpConnector>
+                      <port>8051</port>
+                  </httpConnector>
+                  <scanIntervalSeconds>1500</scanIntervalSeconds>
+              </configuration>
+          </plugin>-->
+
+          <plugin>
+              <groupId>org.apache.tomcat.maven</groupId>
+              <artifactId>tomcat6-maven-plugin</artifactId>
+              <version>2.2</version>
+              <configuration>
+                  <path>/fc</path>
+                  <port>8080</port>
+                  <systemProperties>
+                      <platform.repo.location>C:\oneplatform\props\platform\</platform.repo.location>
+                      <ev.repo.location>C:\oneplatform\props\ev\</ev.repo.location>
+                      <fc.api.url>http://127.0.0.1:8080/fc/api/</fc.api.url>
+                  </systemProperties>
+              </configuration>
+          </plugin>
+          <plugin>
+              <groupId>org.apache.maven.plugins</groupId>
+              <artifactId>maven-compiler-plugin</artifactId>
+              <configuration>
+                  <source>1.7</source>
+                  <target>1.7</target>
+              </configuration>
+          </plugin>
+
+          <!--<plugin>
+              <groupId>org.jboss.as.plugins</groupId>
+              <artifactId>jboss-as-maven-plugin</artifactId>
+              <version>7.7.Final</version>
+              <executions>
+                  <execution>
+                      <phase>install</phase>
+                      <goals>
+                          <goal>deploy</goal>
+                      </goals>
+                  </execution>
+              </executions>
+              <configuration>
+                  <jboss-home>C:/plat_fuel/jboss-eap-6.4.0/jboss-eap-6.4</jboss-home>
+                  <modules-path>C:/plat_fuel/jboss-eap-6.4.0/jboss-eap-6.4/modules</modules-path>
+                  <port>9999</port>
+                  <server-args>
+                      <server-arg>-Dplatform.repo.location=C:\oneplatform\props\platform\</server-arg>
+                      <server-arg>-Dev.repo.location=C:\oneplatform\props\fc\</server-arg>
+                      <server-arg>-b=0.0.0.0</server-arg>
+                      <server-arg>&#45;&#45;server-config=standalone.xml</server-arg>
+                  </server-args>
+
+              </configuration>
+          </plugin>-->
+
+
+      </plugins>
+  </build>
+</project>

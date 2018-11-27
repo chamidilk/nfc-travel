@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="tree-template" pageWidth="842" pageHeight="595" orientation="Landscape" whenNoDataType="AllSectionsNoDetail" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" whenResourceMissingType="Empty" uuid="86aaeedd-f997-4601-a86a-7bed75693f19">
+	<property name="ireport.scriptlethandling" value="0"/>
+	<property name="ireport.encoding" value="UTF-8"/>
+	<property name="ireport.zoom" value="1.1269722013523664"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<import value="net.sf.jasperreports.engine.*"/>
+	<import value="java.util.*"/>
+	<import value="net.sf.jasperreports.engine.data.*"/>
+	<parameter name="IMG" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="FROM_DATE" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="TO_DATE" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="MERCHANT_NAME" class="java.lang.String" isForPrompting="false"/>
+	<field name="meterStart" class="java.lang.Integer"/>
+	<field name="meterStop" class="java.lang.Integer"/>
+	<field name="amount" class="java.lang.Long"/>
+	<field name="status" class="java.lang.String"/>
+	<field name="addedDateStr" class="java.lang.String"/>
+	<field name="cardNumber" class="java.lang.String"/>
+	<field name="cbType" class="java.lang.String"/>
+	<variable name="totalWh" class="java.lang.Long" calculation="Sum">
+		<variableExpression><![CDATA[new java.lang.Long($F{meterStop}.longValue() - $F{meterStart}.longValue())]]></variableExpression>
+		<initialValueExpression><![CDATA[]]></initialValueExpression>
+	</variable>
+	<variable name="totalLkr" class="java.lang.Long" calculation="Sum">
+		<variableExpression><![CDATA[$F{amount}]]></variableExpression>
+		<initialValueExpression><![CDATA[]]></initialValueExpression>
+	</variable>
+	<title>
+		<band height="184">
+			<image scaleImage="RetainShape" hAlign="Left" vAlign="Top" isUsingCache="false" isLazy="true">
+				<reportElement uuid="b13e524f-132b-49c9-aad8-d745ac9808cd" key="image-1" stretchType="RelativeToBandHeight" mode="Opaque" x="30" y="5" width="139" height="90" forecolor="#000000" backcolor="#FFFFFF"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<graphicElement fill="Solid">
+					<pen lineWidth="0.0" lineStyle="Solid"/>
+				</graphicElement>
+				<imageExpression><![CDATA["mobitel.png"]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement uuid="1131409e-97ae-4abe-b3ef-945598d7f07f" x="532" y="5" width="53" height="25"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Consolas" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA["From:"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="1131409e-97ae-4abe-b3ef-945598d7f07f" x="532" y="37" width="53" height="25"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Consolas" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA["To:"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="1131409e-97ae-4abe-b3ef-945598d7f07f" mode="Transparent" x="592" y="5" width="178" height="25"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Consolas" size="11" isBold="true"/>
+					<paragraph lineSpacing="Single" lineSpacingSize="2.0" leftIndent="5" rightIndent="7" spacingAfter="5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{FROM_DATE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="1131409e-97ae-4abe-b3ef-945598d7f07f" x="592" y="37" width="178" height="25"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Consolas" size="11" isBold="true"/>
+					<paragraph lineSpacing="Single" lineSpacingSize="2.0" leftIndent="5" rightIndent="7" spacingAfter="5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{TO_DATE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="167b17eb-69c2-4db9-9e11-99b3bb3dc6a1" x="30" y="143" width="56" height="30"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Consolas"/>
+				</textElement>
+				<textFieldExpression><![CDATA["#"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="167b17eb-69c2-4db9-9e11-99b3bb3dc6a1" x="86" y="143" width="175" height="30"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Consolas"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Timestamp"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="167b17eb-69c2-4db9-9e11-99b3bb3dc6a1" x="261" y="143" width="149" height="30"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Consolas"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Card Number"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="167b17eb-69c2-4db9-9e11-99b3bb3dc6a1" x="410" y="143" width="84" height="30"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Consolas"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Type"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="167b17eb-69c2-4db9-9e11-99b3bb3dc6a1" x="494" y="143" width="78" height="30"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Consolas"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Energy (wh)"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="167b17eb-69c2-4db9-9e11-99b3bb3dc6a1" x="675" y="143" width="95" height="30"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Consolas"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Status"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="167b17eb-69c2-4db9-9e11-99b3bb3dc6a1" x="572" y="143" width="103" height="30"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Consolas"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Amount"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="1131409e-97ae-4abe-b3ef-945598d7f07f" x="532" y="70" width="53" height="25"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Consolas" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Name:"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="1131409e-97ae-4abe-b3ef-945598d7f07f" x="592" y="70" width="178" height="25"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Consolas" size="11" isBold="true"/>
+					<paragraph lineSpacing="Single" lineSpacingSize="2.0" leftIndent="5" rightIndent="7" spacingAfter="5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{MERCHANT_NAME}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<detail>
+		<band height="20">
+			<textField>
+				<reportElement uuid="a743e2f7-a5d1-4f1b-8dda-c82e6c549eaf" x="675" y="4" width="95" height="13"/>
+				<textElement textAlignment="Right">
+					<font fontName="Consolas"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{status}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="ebee8225-83d3-4233-807a-a4119b4acd25" x="86" y="4" width="175" height="13"/>
+				<textElement>
+					<font fontName="Consolas"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{addedDateStr}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="e748c857-fef1-46e0-87a8-5ce5266bf19e" x="494" y="4" width="78" height="13"/>
+				<textElement textAlignment="Right">
+					<font fontName="Consolas"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.lang.Long($F{meterStop}.longValue() - $F{meterStart}.longValue())]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="ebee8225-83d3-4233-807a-a4119b4acd25" x="30" y="4" width="25" height="13"/>
+				<textElement>
+					<font fontName="Consolas"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{REPORT_COUNT}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="ebee8225-83d3-4233-807a-a4119b4acd25" x="261" y="4" width="149" height="13"/>
+				<textElement>
+					<font fontName="Consolas"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cardNumber}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="ebee8225-83d3-4233-807a-a4119b4acd25" x="410" y="4" width="84" height="13"/>
+				<textElement>
+					<font fontName="Consolas"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cbType}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="e748c857-fef1-46e0-87a8-5ce5266bf19e" x="572" y="4" width="103" height="13"/>
+				<textElement textAlignment="Right">
+					<font fontName="Consolas"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.text.DecimalFormat("0.00").format($F{amount}/100.0)]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<lastPageFooter>
+		<band height="74">
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="e748c857-fef1-46e0-87a8-5ce5266bf19e" x="362" y="46" width="105" height="19"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Consolas" size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{totalWh} == null ? 0 : $V{totalWh}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="e748c857-fef1-46e0-87a8-5ce5266bf19e" x="669" y="46" width="103" height="19"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Consolas" size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.text.DecimalFormat("0.00").format($V{totalLkr} == null ? 0 : $V{totalLkr}/100.0)]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="1131409e-97ae-4abe-b3ef-945598d7f07f" x="198" y="46" width="164" height="19"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Consolas" size="11" isItalic="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Total Energy (wh):"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="1131409e-97ae-4abe-b3ef-945598d7f07f" x="509" y="46" width="160" height="19"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Consolas" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Total Amount (lkr):"]]></textFieldExpression>
+			</textField>
+		</band>
+	</lastPageFooter>
+</jasperReport>

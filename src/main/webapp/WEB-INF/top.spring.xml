@@ -1,0 +1,35 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+
+	<bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations">
+			<list>
+				<value>file:${ev.repo.location}/app.properties</value>
+			</list>
+		</property>
+
+		<property name="ignoreResourceNotFound" value="true" />
+		<property name="searchSystemEnvironment" value="true" />
+		<property name="systemPropertiesModeName" value="SYSTEM_PROPERTIES_MODE_OVERRIDE" />
+	</bean>
+
+
+	<bean  init-method="initRestTemplate" id="evRestTemplate" class="com.fc.rest.client.RestClient">
+		<property name="host" value="${ev.host}" />
+		<property name="port" value="${ev.port}" />
+		<property name="username" value="${ev.username}" />
+		<property name="password" value="${ev.password}" />
+	</bean>
+
+	<bean  id="appUrl" class="com.mobitel.ev.util.AppUrl">
+		<constructor-arg value="${ev.app}" />
+	</bean>
+
+
+
+
+
+</beans>

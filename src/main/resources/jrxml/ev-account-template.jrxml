@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="tree-template" pageWidth="842" pageHeight="595" orientation="Landscape" whenNoDataType="AllSectionsNoDetail" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" whenResourceMissingType="Empty" uuid="86aaeedd-f997-4601-a86a-7bed75693f19">
+	<property name="ireport.scriptlethandling" value="0"/>
+	<property name="ireport.encoding" value="UTF-8"/>
+	<property name="ireport.zoom" value="1.5026296018031553"/>
+	<property name="ireport.x" value="54"/>
+	<property name="ireport.y" value="0"/>
+	<import value="net.sf.jasperreports.engine.*"/>
+	<import value="java.util.*"/>
+	<import value="net.sf.jasperreports.engine.data.*"/>
+	<parameter name="IMG" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="FROM_DATE" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="TO_DATE" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="NAME" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="CARD_NUMBER" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="ACCOUNT_NUMBER" class="java.lang.String" isForPrompting="false"/>
+	<field name="evCredit" class="java.lang.Integer"/>
+	<field name="evDebit" class="java.lang.Integer"/>
+	<field name="evBalance" class="java.lang.Integer"/>
+	<field name="addedDateStr" class="java.lang.String"/>
+	<field name="narration" class="java.lang.String"/>
+	<field name="sequenceNo" class="java.lang.Integer"/>
+	<field name="cbType" class="java.lang.String"/>
+	<title>
+		<band height="250">
+			<image scaleImage="RetainShape" hAlign="Left" vAlign="Top" isUsingCache="false" isLazy="true">
+				<reportElement uuid="b13e524f-132b-49c9-aad8-d745ac9808cd" key="image-1" stretchType="RelativeToBandHeight" mode="Opaque" x="30" y="5" width="139" height="90" forecolor="#000000" backcolor="#FFFFFF"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<graphicElement fill="Solid">
+					<pen lineWidth="0.0" lineStyle="Solid"/>
+				</graphicElement>
+				<imageExpression><![CDATA["mobitel.png"]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement uuid="1131409e-97ae-4abe-b3ef-945598d7f07f" x="500" y="5" width="82" height="25"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Consolas" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA["From:"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="1131409e-97ae-4abe-b3ef-945598d7f07f" x="500" y="37" width="82" height="25"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Consolas" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA["To:"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="1131409e-97ae-4abe-b3ef-945598d7f07f" mode="Transparent" x="592" y="5" width="178" height="25"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Consolas" size="11" isBold="true"/>
+					<paragraph lineSpacing="Single" lineSpacingSize="2.0" leftIndent="5" rightIndent="7" spacingAfter="5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{FROM_DATE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="1131409e-97ae-4abe-b3ef-945598d7f07f" x="592" y="37" width="178" height="25"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Consolas" size="11" isBold="true"/>
+					<paragraph lineSpacing="Single" lineSpacingSize="2.0" leftIndent="5" rightIndent="7" spacingAfter="5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{TO_DATE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="167b17eb-69c2-4db9-9e11-99b3bb3dc6a1" x="30" y="210" width="56" height="30"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Consolas"/>
+				</textElement>
+				<textFieldExpression><![CDATA["#"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="167b17eb-69c2-4db9-9e11-99b3bb3dc6a1" x="86" y="210" width="132" height="30"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Consolas"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Timestamp"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="167b17eb-69c2-4db9-9e11-99b3bb3dc6a1" x="218" y="210" width="90" height="30"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Consolas"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Credit"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="167b17eb-69c2-4db9-9e11-99b3bb3dc6a1" x="308" y="210" width="90" height="30"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Consolas"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Debit"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="167b17eb-69c2-4db9-9e11-99b3bb3dc6a1" x="488" y="210" width="112" height="30"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Consolas"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Narration"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="1131409e-97ae-4abe-b3ef-945598d7f07f" x="500" y="70" width="82" height="25"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Consolas" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Name:"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="1131409e-97ae-4abe-b3ef-945598d7f07f" x="500" y="106" width="82" height="25"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Consolas" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA["mCash A/C:"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="1131409e-97ae-4abe-b3ef-945598d7f07f" x="592" y="70" width="178" height="25"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Consolas" size="11" isBold="true"/>
+					<paragraph lineSpacing="Single" lineSpacingSize="2.0" leftIndent="5" rightIndent="7" spacingAfter="5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{NAME}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="1131409e-97ae-4abe-b3ef-945598d7f07f" x="592" y="106" width="178" height="25"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Consolas" size="11" isBold="true"/>
+					<paragraph lineSpacing="Single" lineSpacingSize="2.0" leftIndent="5" rightIndent="7" spacingAfter="5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{ACCOUNT_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="1131409e-97ae-4abe-b3ef-945598d7f07f" x="500" y="142" width="82" height="25"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Consolas" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA["EV A/C:"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="1131409e-97ae-4abe-b3ef-945598d7f07f" x="592" y="142" width="178" height="25"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Consolas" size="11" isBold="true"/>
+					<paragraph lineSpacing="Single" lineSpacingSize="2.0" leftIndent="5" rightIndent="7" spacingAfter="5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{CARD_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="167b17eb-69c2-4db9-9e11-99b3bb3dc6a1" x="398" y="210" width="90" height="30"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Consolas"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Balance"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="167b17eb-69c2-4db9-9e11-99b3bb3dc6a1" x="692" y="210" width="78" height="30"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Consolas"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Type"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="167b17eb-69c2-4db9-9e11-99b3bb3dc6a1" x="600" y="210" width="92" height="30"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Consolas"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Transaction #"]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<detail>
+		<band height="20">
+			<textField>
+				<reportElement uuid="ebee8225-83d3-4233-807a-a4119b4acd25" x="86" y="4" width="98" height="13"/>
+				<textElement>
+					<font fontName="Consolas"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{addedDateStr}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="ebee8225-83d3-4233-807a-a4119b4acd25" x="30" y="4" width="25" height="13"/>
+				<textElement>
+					<font fontName="Consolas"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{REPORT_COUNT}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="ebee8225-83d3-4233-807a-a4119b4acd25" x="218" y="4" width="90" height="13"/>
+				<textElement textAlignment="Right">
+					<font fontName="Consolas"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.text.DecimalFormat("0.00").format($F{evCredit}/100.0)]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="ebee8225-83d3-4233-807a-a4119b4acd25" x="308" y="4" width="90" height="13"/>
+				<textElement textAlignment="Right">
+					<font fontName="Consolas"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.text.DecimalFormat("0.00").format($F{evDebit}/100.0)]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="ebee8225-83d3-4233-807a-a4119b4acd25" x="398" y="4" width="90" height="13"/>
+				<textElement textAlignment="Right">
+					<font fontName="Consolas"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.text.DecimalFormat("0.00").format($F{evBalance}/100.0)]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="ebee8225-83d3-4233-807a-a4119b4acd25" x="692" y="4" width="78" height="13"/>
+				<textElement textAlignment="Center">
+					<font fontName="Consolas"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cbType}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="ebee8225-83d3-4233-807a-a4119b4acd25" x="488" y="4" width="112" height="13"/>
+				<textElement textAlignment="Right">
+					<font fontName="Consolas"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{narration}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="ebee8225-83d3-4233-807a-a4119b4acd25" x="600" y="4" width="92" height="13"/>
+				<textElement textAlignment="Center">
+					<font fontName="Consolas"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{sequenceNo}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>
